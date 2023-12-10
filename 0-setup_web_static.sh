@@ -32,6 +32,6 @@ sudo chown -R ubuntu:ubuntu /data/
 # Here is the section that configures Nginx Config file
 CONF_PATH=/etc/nginx/sites-enabled/default
 
-sudo sed -i "/listen 80 default_server;/a\\\tlocation /hbnb_static/ {\n\talias /data/web_static/current/;\n\t}" "$CONF_PATH"
+sudo sed -i '/listen 80 default_server/a location /hbnb_static { alias /data/web_static/current/;}' /etc/nginx/sites-enabled/default
 
 sudo service nginx restart
